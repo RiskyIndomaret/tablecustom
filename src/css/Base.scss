@@ -1,0 +1,530 @@
+/*
+ * Copyright (C) 2016 Microsoft
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of
+ * this software and associated documentation files (the "Software"), to deal in
+ * the Software without restriction, including without limitation the rights to
+ * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+ * the Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+ * FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+ * COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+ * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+ * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+@import "./icons/icons";
+
+:local(.className) {
+
+    @import "../../node_modules/lineup-v1/css/style";
+
+    .lu .headerLabel {
+        @extend .smallFontSize !optional;
+        @extend %smallFontSize !optional;
+        @extend .regularFont !optional;
+        @extend %regularFont !optional;
+        font-weight: normal;
+        /*stroke-size:.1;*/
+        /*stroke:white;*/
+    }
+
+    .lu .headerSort {
+        @extend .smallFontSize !optional;
+        @extend %smallFontSize !optional;
+    }
+
+    .lineup .lu .tableData {
+        @extend .regularFont !optional;
+        @extend %regularFont !optional;
+        @extend .smallFontSize !optional;
+        @extend %smallFontSize !optional;
+    }
+
+    .lu .tableData.action div {
+        @extend .smallFontSize !optional;
+        @extend %smallFontSize !optional;
+    }
+
+    .lu .sortedColumn {
+        @extend .semiboldFont !optional;
+        @extend %semiboldFont !optional;
+        @extend .mediumFontSize !optional;
+        @extend %mediumFontSize !optional;
+        font-weight: 600;
+    }
+
+    .lu .addColumnButton div {
+        @extend .semiboldFont !optional;
+        @extend %semiboldFont !optional;
+        @extend .smallFontSize !optional;
+        @extend %smallFontSize !optional;
+    }
+
+    .lu .fontawe {
+        @extend .mediumFontSize !optional;
+        @extend %mediumFontSize !optional;
+    }
+
+    .lu .stackedOption div {
+        @extend .smallFontSize !optional;
+        @extend %smallFontSize !optional;
+    }
+
+    .lu .tableData.valueonly {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .lu .values {
+        .bar,.stacked {
+            opacity: .5;
+        }
+    }
+
+    .lu-popup {
+        @extend .regularFont !optional;
+        @extend %regularFont !optional;
+        @extend .smallFontSize !optional;
+        @extend %smallFontSize !optional;
+    }
+
+    .lu-popup .selectionTable {
+        background: white;
+        overflow-x: auto;
+        overflow-y: auto;
+        width: 100%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        max-height: 300px;
+
+        td {
+            vertical-align: middle;
+        }
+
+        td.checkmark {
+            vertical-align: bottom;
+        }
+    }
+
+    .lu-popup table {
+        @extend .smallFontSize !optional;
+        @extend %smallFontSize !optional;
+    }
+
+    .lu-popup2 {
+        @extend .regularFont !optional;
+        @extend %regularFont !optional;
+        @extend .smallFontSize !optional;
+        @extend %smallFontSize !optional;
+    }
+
+    .lu-tooltip {
+        @extend .regularFont !optional;
+        @extend %regularFont !optional;
+        @extend .smallFontSize !optional;
+        @extend %smallFontSize !optional;
+
+        text-align: left;
+
+        padding: 2px;
+    }
+    .lu-tooltip table {
+        font-size: 1em;
+    }
+    .lu-tooltip tbody th{
+        width: 100px;
+    }
+
+    // /*
+    //  * in the separate mode a dedicated header and body svg are used, with an additional wrapper div for the body as scrolling container
+    //  */
+    .lu-mode-separate{
+        .lu-header {
+            /* position: absolute; */
+            /* top: 0; */
+            /* left: 0; */
+            position: initial;
+            top: initial;
+            left: initial;
+            width: 100%;
+            height: 50px;
+        }
+        .lu-wrapper {
+            // height: -moz-calc(100% - 100px);
+            // height: -webkit-calc(100% - 100px);
+            // height: calc(100% - 100px);
+            top: initial;
+        }
+    }
+
+    .lineup-component {
+        @extend .smallFontSize !optional;
+        @extend %smallFontSize !optional;
+        @extend .regularFont !optional;
+        @extend %regularFont !optional;
+    }
+
+    .nav ul {
+    list-style: none;
+    //   background-color: #444;
+    //   text-align: center;
+    padding: 0;
+    margin: 0;
+    color: #aaa;
+    }
+    .nav li {
+    @extend .mediumFontSize !optional;
+    @extend %mediumFontSize !optional;
+    //   line-height: 40px;
+    //   height: 40px;
+    border-bottom: 1px solid #888;
+
+    &:first-of-type a {
+        border-radius: 5px 0px 0px 5px;
+    }
+
+    &:last-of-type a {
+        border-radius: 0px 5px 5px 0px;
+    }
+    }
+
+    .nav a {
+    text-decoration: none;
+    color: #888;
+    display: block;
+    transition: .3s color;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 5px;
+
+    .fa-stack {
+        font-size: .5em;
+    }
+    }
+
+    .add-column,.add-stacked-column {
+        .fa-plus-circle {
+            margin: .5em;
+            color: green;
+        }
+    }
+
+    .nav a:hover {
+    color: #444;
+    }
+
+    .nav a.active {
+    background-color: #444;
+    //   color: #444;
+    cursor: default;
+    }
+
+    // @media screen and (min-width: 600px) {
+    .nav li {
+        // width: 120px;
+        border-bottom: none;
+        // height: 50px;
+        // line-height: 50px;
+        font-size: 1.4em;
+    }
+
+    /* Option 1 - Display Inline */
+    .nav li {
+        display: inline-block;
+        margin-right: -4px;
+    }
+
+    /* Options 2 - Float
+    .nav li {
+        float: left;
+    }
+    .nav ul {
+        overflow: auto;
+        width: 600px;
+        margin: 0 auto;
+    }
+    .nav {
+        background-color: #444;
+    }
+    */
+    // }
+
+
+
+    .lineup-component {
+        /** http://loading.io/ */
+        @-webkit-keyframes uil-ring-anim {
+        0% {
+            -ms-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -ms-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+        }
+        @-webkit-keyframes uil-ring-anim {
+        0% {
+            -ms-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -ms-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+        }
+        @-moz-keyframes uil-ring-anim {
+        0% {
+            -ms-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -ms-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+        }
+        @-ms-keyframes uil-ring-anim {
+        0% {
+            -ms-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -ms-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+        }
+        @-moz-keyframes uil-ring-anim {
+        0% {
+            -ms-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -ms-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+        }
+        @-webkit-keyframes uil-ring-anim {
+        0% {
+            -ms-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -ms-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+        }
+        @-o-keyframes uil-ring-anim {
+        0% {
+            -ms-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -ms-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+        }
+        @keyframes uil-ring-anim {
+        0% {
+            -ms-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -ms-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+        }
+
+        .load-spinner > div {
+            position: absolute;
+            display: block;
+            width: 160px;
+            height: 160px;
+            top: 20px;
+            left: 20px;
+            border-radius: 80px;
+            box-shadow: 0 6px 0 0 #59ebff;
+            -ms-animation: uil-ring-anim 1s linear infinite;
+            -moz-animation: uil-ring-anim 1s linear infinite;
+            -webkit-animation: uil-ring-anim 1s linear infinite;
+            -o-animation: uil-ring-anim 1s linear infinite;
+            animation: uil-ring-anim 1s linear infinite;
+        }
+
+        .load-spinner {
+            background: none;
+            position: absolute;
+            display: none;
+            width: 200px;
+            height: 200px;
+            left: 50%;
+            top: 50%;
+            margin-left: -80px;
+            margin-top: -80px;
+            transform: scale(.5);
+        }
+
+        &.loading {
+
+            .lu-wrapper {
+                position: relative;
+            }
+
+            .lu-wrapper:after {
+                content: " ";
+                z-index: 10;
+                display: block;
+                position: absolute;
+                height: 100%;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0);
+            }
+
+            .load-spinner {
+                display: block;
+            }
+        }
+    }
+
+    .lu .fontawe, .lu div.headerSort {
+        font-family: "table-sorter-font-awesome" !important;
+    }
+
+    // Taken from https://github.com/FortAwesome/Font-Awesome/blob/master/scss/_stacked.scss
+    .fa-stack {
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    vertical-align: middle;
+    padding-top: .2em;
+    // -webkit-backface-visibility: hidden;
+    }
+    .fa-stack-1x, .fa-stack-2x {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-left: -.2em;
+    // -webkit-backface-visibility: hidden;
+    }
+    .fa-stack-1x { line-height: inherit; }
+    .fa-stack-2x { font-size: 2em; }
+
+    .clear-selection .fa-check {
+        margin-top: .5em;
+    }
+
+    .add-column, .add-stacked-column {
+        .fa-plus-circle {
+            margin-top: 1em;
+        }
+    }
+
+    .mappingArea:after {
+        content: "Note: This only reflects the currently loaded data";
+        font-style: italic;
+        font-size: .75em;
+        text-align: center;
+        display: block;
+
+        // Normally 10, but the "OK" button is position: absolute;
+        margin-bottom: 20px;
+    }
+
+    .lu-popup {
+        // .reset, label, .cancel {
+        //     display: none;
+        // }
+        // .ok {
+        //     margin-top: -20px;
+        // }
+
+        .column-domain {
+            height: 22px;
+            clear: both;
+            .datalabel {
+                height: 16px;
+                margin-top: 4px;
+                margin-right: 2px;
+                float: left;
+            }
+            .max-container {
+                float: left;
+                height: 20px;
+                margin-top: 2px;
+                margin-left: 4px;
+
+                input {
+                    width: 100px;
+                }
+            }
+            .min-container {
+                float: left;
+                height: 20px;
+                margin-top: 2px;
+                input {
+                    width: 50px;
+                }
+            }
+        }
+    }
+}
